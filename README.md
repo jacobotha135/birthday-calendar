@@ -1,69 +1,64 @@
-# React + TypeScript + Vite
+# React Developer Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the React Developer Test! This project is designed to assess your skills in React, TypeScript, and modern frontend development. Please follow the instructions below to complete the test.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **Install Dependencies**
 
-## Expanding the ESLint configuration
+   Run the following command in the project root and ensure you are on node v20 >:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+   ```sh
+   npm install
+   ```
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. **Start the Development Server**
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+   ```sh
+   npm run dev
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   The app will be available at [http://localhost:5173](http://localhost:5173) by default.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Your Task
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+You will find a simple birthday calendar application. Your goal is to improve and extend the application as described below:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Requirements
+
+1. **Code Quality**
+
+   - Use TypeScript throughout the project and where possible.
+   - Ensure your code is clean, readable, and well-structured.
+   - Use functional components and React hooks.
+   - Add comments where necessary.
+
+2. **Features to Implement or Improve**
+
+   - Add the functionality to add a birthday to the calendar.
+   - Validate the form to prevent invalid or duplicate entries.
+   - Showcase state management between the React components.
+   - When a birthday is submitted in the BirthdayForm component it should be consumed in the BirthdayCalendar, when clicking on a date that matches a birthday that was added it should appear below the calendar.
+   - Look out for _TODO_ comments along the way as tips on what to implement.
+
+3. **UI/UX**
+
+   - Make the UI visually appealing and user-friendly.
+   - Use CSS modules or another modern styling approach.
+   - Ensure the app is responsive and works well on mobile devices.
+
+4. **Bonus**
+
+   - Add functionality to delete a birthday from the calendar.
+   - Display birthdays in a sorted order (e.g., by date or name)
+   - Notification that a birthday has been added upon submission.
+   - Improve the overall styling of the Birthday Calendar
+
+## Submission
+
+- Ensure your code is committed and pushed to your repository.
+- Provide a link to your repository for review.
+
+## Good Luck!
+
+If you have any questions, please contact the reviewer or refer to the project documentation.
