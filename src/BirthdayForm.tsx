@@ -21,22 +21,31 @@ const BirthdayForm: React.FC<BirthdayFormProps> = ({ onAddBirthday, birthdays })
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
   
-    // Check if name or date is empty
     if (!name.trim() || !date) {
       toast.error('Please enter both a name and a valid date!');
       return;
     }
   
-    // Check for exact same name + date combo (duplicate entry)
-    const existsExact = birthdays.some(b => b.name === name && b.date === date);
+    const normalizedName = name.trim().toLowerCase();
+  
+    const existsByName = birthdays.some(
+      b => b.name.trim().toLowerCase() === normalizedName
+    );
+    if (existsByName) {
+      toast.error(`${name} is already on the birthday list.`);
+      return;
+    }
+  
+    const existsExact = birthdays.some(
+      b => b.name.trim().toLowerCase() === normalizedName && b.date === date
+    );
     if (existsExact) {
       toast.error(`${name} already has a birthday on ${date}`);
       return;
     }
   
-    onAddBirthday(name, date);
-    toast.success(`🎉 ${name}'s birthday was added!`);
-  
+    onAddBirthday(name.trim(), date);
+    toast.success(`🎉 ${name.trim()}'s birthday was added!`);
     setName('');
     setDate('');
   };
