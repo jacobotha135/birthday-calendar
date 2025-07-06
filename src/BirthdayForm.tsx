@@ -19,6 +19,7 @@ const BirthdayForm: React.FC<BirthdayFormProps> = ({ onAddBirthday, birthdays })
   // handleSubmit function runs when the user submits the form
   // It validates the input, shows an error if needed, or adds the birthday
   const handleSubmit = (e: React.FormEvent) => {
+    // this was added to prvent the browser from reloading when the user submits the form
     e.preventDefault();
   
     if (!name.trim() || !date) {

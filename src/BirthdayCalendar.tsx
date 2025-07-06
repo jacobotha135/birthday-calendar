@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
+// TODO: Bonus - Implement birthdays type interface
 interface Birthday {
   name: string;
   date: string;
