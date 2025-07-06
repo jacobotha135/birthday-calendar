@@ -1,20 +1,29 @@
-import { useState } from 'react'
-import './App.css'
-import BirthdayForm from './BirthdayForm'
-import BirthdayCalendar from './BirthdayCalendar'
+import { useState } from 'react';
+import './App.css';
+import BirthdayForm from './BirthdayForm';
+import BirthdayCalendar from './BirthdayCalendar';
 
 function App() {
   // TODO: 1. Implement state management for birthdays
-  // TODO: 2. Share state with BirthdayForm and BirthdayCalendar components
+  const [birthdays, setBirthdays] = useState<{ name: string; date: string }[]>([]);
 
-  // TIP: The birthday added from the BirthdayForm component should be consumed in the BirthdayCalendar component.
+  // Function to add a birthday to state
+  const addBirthday = (name: string, date: string) => {
+    setBirthdays(prev => [...prev, { name, date }]);
+  };
+
+  // FEATURE: Function to delete a birthday entry
+  const deleteBirthday = (name: string, date: string) => {
+    setBirthdays(prev => prev.filter(b => !(b.name === name && b.date === date)));
+  };
+
   return (
     <>
-      <h1>Birthday Calendar App</h1>
-      <BirthdayForm />
-      <BirthdayCalendar />
+      <h2>Birthday Calendar App</h2>
+      <BirthdayForm onAddBirthday={addBirthday} birthdays={birthdays} />
+      <BirthdayCalendar birthdays={birthdays} onDeleteBirthday={deleteBirthday} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
