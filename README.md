@@ -1,6 +1,6 @@
 # 🎉 Birthday Calendar App
 
-This is a simple and responsive React + TypeScript application that allows users to add, view, and delete birthdays on a monthly calendar. It was created as part of a frontend developer assessment.
+This is a simple and responsive React + TypeScript application that allows users to add, view, and delete birthdays on a monthly calendar.
 
 ---
 
@@ -13,7 +13,6 @@ This is a simple and responsive React + TypeScript application that allows users
 - ✅ See all birthdays for the current month
 - ✅ Delete a birthday with confirmation
 - ✅ Toast notifications for feedback
-- ✅ Responsive layout for mobile & desktop
 
 ---
 
